@@ -41,9 +41,9 @@ public class Level {
 		// Define the render region of screen
 		// i.e. corner pins
 		int x0 = xScroll >> 4;							// when move left 
-		int x1 = (xScroll + screen._width+16) >> 4;	// when move right
+		int x1 = (xScroll + screen._width+16) >> 4;		// when move right
 		int y0 = yScroll >> 4;							// when move up
-		int y1 = (yScroll + screen._height) >> 4;	// when move down
+		int y1 = (yScroll + screen._height+16) >> 4;		// when move down
 			
 		for (int y=y0; y<y1; y++) {
 			for (int x=x0; x<x1; x++) {

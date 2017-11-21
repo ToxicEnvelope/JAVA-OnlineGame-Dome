@@ -42,7 +42,12 @@ public class Screen {
 				int xa = x + xp;
 				if (xa < -tile.sprite.SIZE || xa >= _width || ya < 0 || ya >= _width) break;
 				if(xa < 0) xa = 0;
-				pixels[xa + ya * _width] = tile.sprite.pixels[x + y * tile.sprite.SIZE];
+				try {
+					pixels[xa + ya * _width] = tile.sprite.pixels[x + y * tile.sprite.SIZE];
+				}
+				catch (ArrayIndexOutOfBoundsException e) {
+					break;
+				}
 			}      
 		}
 	}
