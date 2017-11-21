@@ -12,6 +12,8 @@ import javax.swing.JFrame;
 
 import com.sysmurff.dome.graphics.Screen;
 import com.sysmurff.dome.input.Events;
+import com.sysmurff.dome.level.Level;
+import com.sysmurff.dome.level.RandomLevel;
 
 public class Game extends Canvas implements Runnable {
 	private static final long serialVersionUID = 1L; 
@@ -26,6 +28,7 @@ public class Game extends Canvas implements Runnable {
 	private Screen screen;
 	private JFrame frame;						// JFrame object to create a window
 	private Events key;  
+	private Level level;
 	private boolean running = false;			// use as FLAG to game loop
 	
 	// Use as the View image
@@ -44,7 +47,9 @@ public class Game extends Canvas implements Runnable {
 		this.frame = new JFrame();
 		// create a new Event object
 		this.key = new Events();
+		this.level = new RandomLevel(64, 64);
 		super.addKeyListener(key);
+		
 		
 	}
 	
@@ -107,10 +112,10 @@ public class Game extends Canvas implements Runnable {
 	
 	public void update() {
 		key.update();
-		if (key.UP) y++;
-		if (key.DOWN) y--;
-		if (key.LEFT) x++;
-		if (key.RIGHT) x--;
+		if (key.UP) y--;
+		if (key.DOWN) y++;
+		if (key.LEFT) x--;
+		if (key.RIGHT) x++;
 	}
 	
 	public void render() {
@@ -124,7 +129,7 @@ public class Game extends Canvas implements Runnable {
 		}
 		
 		screen.clear();
-		screen.render(x, y);
+		level.render(x, y, screen);
 		
 		for (int n=0; n<pixels.length; n++) {
 			pixels[n] = screen.pixels[n];

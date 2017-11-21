@@ -11,6 +11,6 @@ public class StoneTile extends Tile {
 	
 	@Override
 	public void render(int x, int y, Screen screen) {
-		// Do render stuff here!
+		screen.renderTile(x  << 4, y  << 4, this);
 	}
 }

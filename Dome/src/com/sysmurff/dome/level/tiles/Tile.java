@@ -3,7 +3,7 @@ package com.sysmurff.dome.level.tiles;
 import com.sysmurff.dome.graphics.Screen;
 import com.sysmurff.dome.graphics.Sprite;
 
-public class Tile {
+public abstract class Tile {
 
 	protected int x, y;
 	public Sprite sprite;
@@ -17,8 +17,7 @@ public class Tile {
 		this.sprite = aSprite;
 	}
 	
-	public void render(int x, int y, Screen screen) {
-	}
+	public abstract void render(int x, int y, Screen screen);
 	
 	public boolean isSolid() {
 		return false;

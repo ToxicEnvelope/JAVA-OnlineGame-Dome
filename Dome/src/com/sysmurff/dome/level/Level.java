@@ -40,17 +40,23 @@ public class Level {
 		screen.setOffset(xScroll, yScroll);
 		// Define the render region of screen
 		// i.e. corner pins
-		int x0 = xScroll >> 4,						// when move left 
-			x1 = (xScroll + screen._width) >> 4,	// when move right
-			y0 = yScroll >> 4,						// when move up
-			y1 = (yScroll + screen._height) >> 4;	// when move down
+		int x0 = xScroll >> 4;							// when move left 
+		int x1 = (xScroll + screen._width+16) >> 4;	// when move right
+		int y0 = yScroll >> 4;							// when move up
+		int y1 = (yScroll + screen._height) >> 4;	// when move down
+			
+		for (int y=y0; y<y1; y++) {
+			for (int x=x0; x<x1; x++) {
+				getTile(x,y).render(x, y, screen);
+			}
+		}
 	}
 	
-	
 	public Tile getTile(int x, int y) {
+		if(x < 0 || y < 0 || x >= width || y >= height) return Tile.voidTile;
 		if(tiles[x + y * width] == 0) return Tile.grass;
 		if(tiles[x + y * width] == 1) return Tile.stone;
 		if(tiles[x + y * width] == 2) return Tile.water;
-		return Tile.voidTile;
+		return Tile.water;
 	}
 }
