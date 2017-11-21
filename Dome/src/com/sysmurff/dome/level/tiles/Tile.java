@@ -11,6 +11,7 @@ public class Tile {
 	public static Tile grass = new GrassTile(Sprite.grass);
 	public static Tile stone = new StoneTile(Sprite.stone);
 	public static Tile water = new WaterTile(Sprite.water);
+	public static Tile voidTile = new VoidTile(Sprite.voidSprite);
 	
 	public Tile(Sprite aSprite) {
 		this.sprite = aSprite;

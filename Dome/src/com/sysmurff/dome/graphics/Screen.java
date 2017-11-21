@@ -7,11 +7,11 @@ import com.sysmurff.dome.level.tiles.Tile;
 public class Screen {
 
 	// FIELDS
-	private int _width, _height;
+	public int _width, _height;
 	public int[] pixels;
 	private final int MAP_SIZE = 64;
 	//private final int MAP_SIZE_MASK = MAP_SIZE -1;
-	
+	public int xOffset, yOffset;
 	public int[] tiles = new int[MAP_SIZE * MAP_SIZE];
 	
 	private Random random = new Random();
@@ -47,6 +47,8 @@ public class Screen {
 	}
 	
 	public void renderTile(int xp, int yp, Tile tile) {
+		xp -= xOffset;
+		yp -= yOffset;
 		for (int y=0; y<tile.sprite.SIZE; y++) {
 			int ya = y + yp;
 			for (int x=0; x<tile.sprite.SIZE; x++) {
@@ -55,6 +57,11 @@ public class Screen {
 				pixels[xa + ya * _width] = tile.sprite.pixels[x + y * tile.sprite.SIZE];
 			}      
 		}
+	}
+	
+	public void setOffset(int xOffset, int yOffset) {
+		this.xOffset = xOffset;
+		this.yOffset = yOffset;
 	}
 	
 	
