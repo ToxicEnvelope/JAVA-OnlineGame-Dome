@@ -9,6 +9,8 @@ public class Sprite {
 	private SpriteSheet sheet;
 	
 	public static Sprite grass = new Sprite(16, 1, 11, SpriteSheet.tiles);
+	public static Sprite stone = new Sprite(16, 4, 6, SpriteSheet.tiles);
+	public static Sprite water = new Sprite(16, 3, 10, SpriteSheet.tiles);
 	
 	public Sprite(int aSize, int x, int y, SpriteSheet aSheet) {
 		this.SIZE = aSize;

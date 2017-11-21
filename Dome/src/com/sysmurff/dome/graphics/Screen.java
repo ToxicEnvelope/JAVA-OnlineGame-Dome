@@ -2,6 +2,8 @@ package com.sysmurff.dome.graphics;
 
 import java.util.Random;
 
+import com.sysmurff.dome.level.tiles.Tile;
+
 public class Screen {
 
 	// FIELDS
@@ -44,7 +46,16 @@ public class Screen {
 		}
 	}
 	
-	
+	public void renderTile(int xp, int yp, Tile tile) {
+		for (int y=0; y<tile.sprite.SIZE; y++) {
+			int ya = y + yp;
+			for (int x=0; x<tile.sprite.SIZE; x++) {
+				int xa = x + xp;
+				if (xa < 0 || xa >= _width || ya < 0 || ya >= _width) break;
+				pixels[xa + ya * _width] = tile.sprite.pixels[x + y * tile.sprite.SIZE];
+			}      
+		}
+	}
 	
 	
 }

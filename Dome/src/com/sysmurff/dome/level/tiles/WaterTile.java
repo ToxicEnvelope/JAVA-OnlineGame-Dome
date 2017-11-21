@@ -1,12 +1,11 @@
-package com.sysmurff.dome.level.tile;
+package com.sysmurff.dome.level.tiles;
 
 import com.sysmurff.dome.graphics.Screen;
 import com.sysmurff.dome.graphics.Sprite;
 
-public class GrassTile extends Tile {
+public class WaterTile extends Tile {
 
-	
-	public GrassTile(Sprite aSprite) {
+	public WaterTile(Sprite aSprite) {
 		super(aSprite);
 	}
 	
